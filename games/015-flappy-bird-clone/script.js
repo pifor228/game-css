@@ -62,10 +62,8 @@ function gameLoop() {
         if (bird.x + bird.width > pipe.x &&
             bird.x < pipe.x + pipe.width &&
             (bird.y < pipe.gapY || bird.y + bird.height > pipe.gapY + pipe.gapSize)) {
-            if (bird.y < pipe.gapY) {
-                gameOver = true;
-                scoreDisplay.textContent = 'Game Over! Score: ' + score;
-            }
+            gameOver = true;
+            scoreDisplay.textContent = 'Game Over! Score: ' + score;
         }
         
         // Remove offscreen pipes
