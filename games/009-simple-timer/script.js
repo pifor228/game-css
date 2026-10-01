@@ -38,7 +38,7 @@ function startTimer() {
         message.textContent = '';
         
         intervalId = setInterval(() => {
-            totalSeconds++;  // BUG: Should be decrementing, not incrementing!
+            totalSeconds--;  // BUG: Should be decrementing, not incrementing!
             updateDisplay();
             
             if (totalSeconds <= 0) {

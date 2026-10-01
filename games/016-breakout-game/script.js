@@ -71,7 +71,7 @@ function update() {
             ball.y > brick.y &&
             ball.y < brick.y + brick.height) {
             // BUG: Should deactivate brick, but doesn't
-            // brick.active = false;
+            brick.active = false;
             score++;
             ball.speedY *= -1;
         }

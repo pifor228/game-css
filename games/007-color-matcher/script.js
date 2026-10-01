@@ -33,7 +33,7 @@ function generateRound() {
 
 function checkColor(selected) {
     // BUG: Comparison is wrong - comparing wrong way
-    if (selected !== targetColor) {
+    if (selected === targetColor) {
         document.getElementById('message').textContent = 'Correct!';
         score++;
     } else {

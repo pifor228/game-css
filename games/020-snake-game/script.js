@@ -57,7 +57,7 @@ function update() {
     // Check self collision
     for (let segment of snake) {
         // BUG: Wrong comparison - should use === not !==
-        if (newHead.x !== segment.x && newHead.y !== segment.y) {
+        if (newHead.x === segment.x && newHead.y === segment.y) {
             gameOver = true;
             return;
         }

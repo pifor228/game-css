@@ -49,7 +49,7 @@ function update() {
     if (ball.x - ball.radius < player1.x + player1.width &&
         ball.y > player1.y &&
         ball.y < player1.y + player1.height) {
-        if (ball.speedX > 0) {  // Wrong condition!
+        if (ball.speedX < 0) {  // Wrong condition!
             ball.speedX *= -1;
         }
     }

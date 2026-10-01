@@ -3,6 +3,7 @@
     border: 1px solid #ddd;
     padding: 20px;
     /* BUG: Centering with margin auto doesn't work on <span> or if width is 100% */
+    width: 30%;
     margin: 0 auto;
     text-align: center;
 }

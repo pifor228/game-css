@@ -7,8 +7,8 @@ const rollCountDisplay = document.getElementById('rollCount');
 
 rollBtn.addEventListener('click', function() {
     // BUG: Random should be between 1-6, but range is 0-5
-    const result1 = Math.floor(Math.random() * 6);
-    const result2 = Math.floor(Math.random() * 6);
+    const result1 = Math.floor(Math.random() * 6) + 1;
+    const result2 = Math.floor(Math.random() * 6) + 1;
     
     die1.textContent = result1;
     die2.textContent = result2;

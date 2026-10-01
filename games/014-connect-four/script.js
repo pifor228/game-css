@@ -13,9 +13,12 @@ function makeMove(index) {
     
     // Find the lowest empty cell in this column
     let targetIndex = -1;
-    for (let i = 35; i >= 0; i -= 7) {
-        if (i % 7 === col && board[i] === null) {
-            targetIndex = i;
+
+    for (let row = 5; row >= 0; row--) {
+        const index = row * 7 + col;
+
+        if (board[index] === null) {
+            targetIndex = index;
             break;
         }
     }
@@ -27,7 +30,7 @@ function makeMove(index) {
     
     if (checkWin(targetIndex)) {
         // BUG: Announcement swaps players
-        statusDisplay.textContent = `Player ${currentPlayer === 'red' ? 'yellow' : 'red'} Wins!`;
+        statusDisplay.textContent = `Player ${currentPlayer === 'red' ? 'red' : 'yellow'} Wins!`;
         cells.forEach(c => c.style.pointerEvents = 'none');
         return;
     }
@@ -60,9 +63,11 @@ function checkWin(index) {
 resetBtn.addEventListener('click', () => {
     board = Array(42).fill(null);
     currentPlayer = 'red';
+
     cells.forEach(cell => {
         cell.classList.remove('red', 'yellow');
         cell.style.pointerEvents = 'auto';
     });
+
     statusDisplay.textContent = `Player Red's Turn`;
 });

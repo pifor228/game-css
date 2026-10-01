@@ -64,14 +64,14 @@ function selectOption(index) {
     });
     
     // BUG: Wrong comparison - should use === not !==
-    if (selectedAnswer !== q.correct) {
+    if (selectedAnswer === q.correct) {
         resultDisplay.textContent = 'Correct!';
         optionsDisplay[index].classList.add('incorrect');
+        score++;
     } else {
         resultDisplay.textContent = 'Wrong!';
         optionsDisplay[q.correct].classList.add('correct');
         optionsDisplay[index].classList.add('incorrect');
-        score++;
     }
     
     scoreDisplay.textContent = score;

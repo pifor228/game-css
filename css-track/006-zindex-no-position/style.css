@@ -1,6 +1,7 @@
 .box-1 {
     width: 200px;
     height: 200px;
+    position: relative;
     background: red;
     /* BUG: z-index won't work because position is 'static' by default */
     z-index: 10;

@@ -18,12 +18,12 @@ function flipCoin(prediction) {
     
     // BUG: Counters are not being updated!
     if (result === 'Heads') {
-        // headsCount++;
+        headsCount++;
     } else {
-        // tailsCount++;
+        tailsCount++;
     }
     
-    // totalFlips++;
+        totalFlips++;
     
     if (result === prediction) {
         resultDisplay.textContent = 'You won!';

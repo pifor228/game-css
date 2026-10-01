@@ -15,6 +15,16 @@ class Pipe {
         this.gapSize = 120;
         this.gapY = Math.random() * (gameContainer.clientHeight - this.gapSize - 100) + 50;
         this.scored = false;
+
+        // Create pipe elements
+        this.topElement = document.createElement('div');
+        this.bottomElement = document.createElement('div');
+
+        this.topElement.className = 'pipe top';
+        this.bottomElement.className = 'pipe bottom';
+
+        gameContainer.appendChild(this.topElement);
+        gameContainer.appendChild(this.bottomElement);
     }
 }
 
@@ -31,6 +41,14 @@ function gameLoop() {
     // Move pipes
     pipes.forEach((pipe, index) => {
         pipe.x -= 5;
+
+        // Update pipe position
+        pipe.topElement.style.left = pipe.x + 'px';
+        pipe.topElement.style.height = pipe.gapY + 'px';
+
+        pipe.bottomElement.style.left = pipe.x + 'px';
+        pipe.bottomElement.style.height =
+            (gameContainer.clientHeight - pipe.gapY - pipe.gapSize) + 'px';
         
         // Check score
         if (pipe.x < bird.x && !pipe.scored) {
@@ -41,8 +59,8 @@ function gameLoop() {
         
         // Check collision
         // BUG: Wrong collision detection - should be > not <
-        if (bird.x < pipe.x + pipe.width &&
-            bird.x + bird.width > pipe.x &&
+        if (bird.x + bird.width > pipe.x &&
+            bird.x < pipe.x + pipe.width &&
             (bird.y < pipe.gapY || bird.y + bird.height > pipe.gapY + pipe.gapSize)) {
             if (bird.y < pipe.gapY) {
                 gameOver = true;
@@ -52,6 +70,8 @@ function gameLoop() {
         
         // Remove offscreen pipes
         if (pipe.x < -pipe.width) {
+            pipe.topElement.remove();
+            pipe.bottomElement.remove();
             pipes.splice(index, 1);
         }
     });

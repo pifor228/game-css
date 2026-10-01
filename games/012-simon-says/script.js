@@ -22,7 +22,7 @@ function playerClick(e) {
     playSound(color);
     
     // BUG: Checking wrong index - should use playerSequence.length - 1
-    if (playerSequence[playerSequence.length] !== sequence[playerSequence.length]) {
+    if (playerSequence[playerSequence.length - 1] !== sequence[playerSequence.length - 1]) {
         messageDisplay.textContent = 'Game Over! Final Level: ' + level;
         gameActive = false;
         startBtn.disabled = false;

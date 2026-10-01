@@ -40,7 +40,7 @@ function spawnMole() {
     if (currentMole) {
         currentMole.classList.remove('mole');
         // BUG: Should reset to 🕳️ but doesn't
-        // currentMole.textContent = '🕳️';
+        currentMole.textContent = '🕳️';
     }
     
     // Pick random hole
